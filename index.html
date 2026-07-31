@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>KagaLinguaRelay v1.00 — Getting Started</title><style>
+body{margin:0;padding:20px;background:#101418;color:#fff;font:16px/1.7 Arial,sans-serif}.container{max-width:1080px;margin:auto;padding:34px;background:rgba(0,0,0,.76);border-radius:12px;box-shadow:0 0 25px rgba(0,255,170,.25)}h1{text-align:center;color:#00ffaa;margin:0}.version{text-align:center;color:#9fffd7;margin:8px 0 28px}.lang-title{margin-top:0;padding:13px 16px;color:#101418;background:#00ffaa;border-radius:7px;font-size:1.35em;font-weight:bold}h2{color:#00ffcc;border-bottom:2px solid #00ffaa;padding-bottom:8px;margin-top:38px}h3{color:#72ffd0}.box{margin:18px 0;padding:16px 18px;background:rgba(255,255,255,.06);border-left:5px solid #00ffaa;border-radius:6px}.warn{border-color:#ffcc00;background:rgba(100,75,0,.22)}.danger{border-color:#ff6666;background:rgba(100,0,0,.22)}code{color:#ffff77;white-space:pre-wrap}.hl{color:#ffff77;font-weight:bold}a{color:#6bd9ff}.tree{margin:12px 0;padding:14px 16px;background:#0b1514;border-radius:6px;font-family:Consolas,monospace;white-space:pre-wrap}.lang-break{border:0;border-top:3px solid #00ffaa;margin:52px 0}@media(max-width:650px){body{padding:8px}.container{padding:20px}}
+</style></head><body><main class="container">
+<!-- KagaLinguaRelay v1.00 Getting Started — 2026-07-31 1834 -->
+<h1>KagaLinguaRelay v1.00</h1><p class="version">Getting Started / 導入編</p>
+
+<section lang="ja"><div class="lang-title">日本語版 — 導入編</div>
+<div class="box"><h3>はじめに</h3><p>KagaLinguaRelay は、Second Life の公開チャットを参加者の言語に合わせて翻訳するリレーです。まずAPIキーを取得し、<code>engine_config</code> を設定してから、各スクリプトを指定のプリムへ入れてください。</p></div>
+<h2>1. APIキーを取得する</h2>
+<div class="box"><h3>DeepL</h3><ol><li><a href="https://developers.deepl.com/docs/getting-started/quickstart" target="_blank">DeepL公式 Quickstart</a> を開き、DeepL API のプランを選んで登録します。</li><li>DeepL APIアカウントの <b>API Keys</b> からキーを取得します。</li><li><code>DEEPL_KEY=取得したキー</code> の形式で設定します。Free APIキーは通常 <code>:fx</code> で終わります。</li></ol><p><a href="https://developers.deepl.com/docs/getting-started/auth" target="_blank">DeepL公式: Access and authentication</a></p></div>
+<div class="box"><h3>Azure Translator</h3><ol><li><a href="https://learn.microsoft.com/en-us/azure/ai-services/translator/create-translator-resource" target="_blank">Microsoft公式: Create and configure Azure resources for Translator</a> を開き、Azure Translator リソースを作成します。</li><li>リソースの <b>Keys and Endpoint</b> からキーを取得し、作成時に選んだリージョン名を確認します。</li><li><code>AZURE_KEY=取得したキー|リージョン</code> の形式で設定します。例：<code>AZURE_KEY=your-key|japaneast</code></li></ol><p>複数キーを使う場合も、各キーに対応するリージョンを <code>|</code> の後へ記載します。</p></div>
+<div class="box danger"><h3>APIキーの扱い</h3><p>APIキーは第三者へ共有しないでください。再配布する製品コピーには、必ずキーを削除した <code>engine_config</code> を使用してください。</p></div>
+<h2>2. engine_config を作る</h2><div class="box"><ol><li>同梱の <code>engine_config sample 2026-07-31 1834.txt</code> をコピーします。</li><li>コピーしたノートカードを、正確に <span class="hl">engine_config</span> と名前変更します。</li><li>使用するキーの行から先頭の <code>#</code> を削除し、自分のAPIキーへ置き換えます。</li><li>ノートカードの権限を、全員・グループはすべてOFF、次の所有者はコピーのみONにします。</li></ol></div>
+<h2>3. スクリプトを入れる場所</h2><div class="box"><div class="tree">親プリム 0
+├─ Manager
+├─ Que1 ～ Que4
+├─ RateGate
+└─ DispatchBroker
+
+子プリム 1 ～ 8（各プリム）
+├─ Worker
+└─ Sender</div><p>親プリムには上記6種・合計8本のスクリプト、各子プリムには Worker と Sender を1本ずつ入れます。<code>engine_config</code> と必要に応じた <code>ALLOW_LIST</code> は親プリムへ入れます。</p></div>
+<h2>4. 起動確認</h2><div class="box"><ol><li>オブジェクトをリセットします。</li><li>オーナーチャットに、選択中エンジンと <code>Active keys</code> が表示されることを確認します。</li><li>翻訳機から20m以内で公開チャットを行い、翻訳を確認します。</li></ol><p>赤い <code>ERROR</code> 表示になった場合は、選択中エンジンに有効なキーがありません。<code>engine_config</code> と API Menu のキー状態を確認してからリセットしてください。</p></div>
+<div class="box warn"><h3>次に読むもの</h3><p><a href="owner-manual.html">Owner Manual</a> ／ <a href="visitor-guide.html">Visitor Guide</a> ／ <a href="support-status.html">Support Status</a> ／ <a href="error-codes.html">Error Codes and Notices</a></p></div>
+</section>
+
+<hr class="lang-break"><section lang="en"><div class="lang-title">English Edition — Getting Started</div>
+<div class="box"><h3>Before You Start</h3><p>KagaLinguaRelay translates Second Life public chat according to each participant's language. Obtain API keys, configure <code>engine_config</code>, then place the scripts in the designated prims.</p></div>
+<h2>1. Obtain API Keys</h2>
+<div class="box"><h3>DeepL</h3><ol><li>Open the <a href="https://developers.deepl.com/docs/getting-started/quickstart" target="_blank">official DeepL Quickstart</a>, choose a DeepL API plan, and sign up.</li><li>Get a key from the <b>API Keys</b> area of your DeepL API account.</li><li>Add it as <code>DEEPL_KEY=your-key</code>. Free API keys normally end in <code>:fx</code>.</li></ol><p><a href="https://developers.deepl.com/docs/getting-started/auth" target="_blank">DeepL: Access and authentication</a></p></div>
+<div class="box"><h3>Azure Translator</h3><ol><li>Open <a href="https://learn.microsoft.com/en-us/azure/ai-services/translator/create-translator-resource" target="_blank">Microsoft's Translator resource guide</a> and create an Azure Translator resource.</li><li>On the resource's <b>Keys and Endpoint</b> page, copy a key and note the region selected when creating the resource.</li><li>Add it as <code>AZURE_KEY=your-key|region</code>; for example, <code>AZURE_KEY=your-key|japaneast</code>.</li></ol><p>With multiple keys, write the matching region after every key, following <code>|</code>.</p></div>
+<div class="box danger"><h3>Protect API Keys</h3><p>Do not share API keys with third parties. Before redistributing a product copy, remove keys from <code>engine_config</code>.</p></div>
+<h2>2. Create engine_config</h2><div class="box"><ol><li>Copy the included <code>engine_config sample 2026-07-31 1834.txt</code>.</li><li>Rename the copy exactly <span class="hl">engine_config</span>.</li><li>Remove the leading <code>#</code> from lines you will use and replace the example values with your own keys.</li><li>Set notecard permissions: Everyone and Group none; Next owner Copy only.</li></ol></div>
+<h2>3. Script Placement</h2><div class="box"><div class="tree">Root prim 0
+├─ Manager
+├─ Que1 through Que4
+├─ RateGate
+└─ DispatchBroker
+
+Child prims 1 through 8 (each prim)
+├─ Worker
+└─ Sender</div><p>Place the eight scripts listed for the root prim into the root. Put one Worker and one Sender into every child prim. Put <code>engine_config</code>, and optionally <code>ALLOW_LIST</code>, into the root prim.</p></div>
+<h2>4. Verify Startup</h2><div class="box"><ol><li>Reset the object.</li><li>In owner chat, confirm the selected engine and <code>Active keys</code> count.</li><li>Use public chat within 20 metres of the relay and confirm translation.</li></ol><p>If a red <code>ERROR</code> display appears, the selected engine has no usable key. Check <code>engine_config</code> and the API Menu key state, then reset.</p></div>
+<div class="box warn"><h3>Read Next</h3><p><a href="owner-manual.html">Owner Manual</a> ／ <a href="visitor-guide.html">Visitor Guide</a> ／ <a href="support-status.html">Support Status</a> ／ <a href="error-codes.html">Error Codes and Notices</a></p></div>
+</section></main></body></html>
