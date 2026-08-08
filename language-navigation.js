@@ -8,11 +8,10 @@
   if (englishSection) englishSection.id = "en";
 
   var explicitLanguage = /^#(ja|en)$/.exec(window.location.hash);
-  var language = explicitLanguage
-    ? explicitLanguage[1]
-    : /^ja(?:-|$)/i.test(window.navigator.language || "")
-      ? "ja"
-      : "en";
+  var browserLanguage = /^ja(?:-|$)/i.test(window.navigator.language || "")
+    ? "ja"
+    : "en";
+  var language = explicitLanguage ? explicitLanguage[1] : browserLanguage;
 
   document.documentElement.lang = language;
 
@@ -22,9 +21,7 @@
 
     if (!href || !internalPage.test(href)) return;
 
-    var section = link.closest("section[lang]");
-    var linkLanguage = section ? section.lang : language;
-    link.setAttribute("href", href.replace(/#(?:ja|en)$/, "") + "#" + linkLanguage);
+    link.setAttribute("href", href.replace(/#(?:ja|en)$/, "") + "#" + browserLanguage);
   });
 
   if (window.location.hash && !explicitLanguage) return;
