@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>KagaLinguaRelay — Azure Translator F0 Reference</title>
+  <style>
+    :root {
+      --ink: #172033;
+      --muted: #526077;
+      --line: #dbe3ef;
+      --accent: #1d4ed8;
+      --alert: #c81e1e;
+      --soft: #f5f8fc;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: #eef3f9;
+      color: var(--ink);
+      font-family: "Segoe UI", "Yu Gothic UI", "Hiragino Kaku Gothic ProN", Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+
+    main {
+      width: min(920px, calc(100% - 32px));
+      margin: 40px auto;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(20, 40, 72, .08);
+    }
+
+    .masthead {
+      padding: 42px 48px 34px;
+      color: #fff;
+      background: linear-gradient(135deg, #183b76, #2563eb);
+    }
+
+    .masthead h1 { margin: 0; font-size: clamp(25px, 4vw, 38px); line-height: 1.28; }
+    .masthead p { margin: 12px 0 0; opacity: .9; }
+
+    article { padding: 38px 48px 44px; }
+    article + article { border-top: 8px solid #eaf0f8; }
+
+    h2 { margin: 34px 0 12px; font-size: 23px; line-height: 1.4; color: #183b76; }
+    h2:first-child { margin-top: 0; }
+    p { margin: 0 0 16px; }
+    a { color: var(--accent); font-weight: 650; }
+
+    .notice {
+      margin: 20px 0 28px;
+      padding: 16px 18px;
+      border-left: 4px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      background: var(--soft);
+    }
+
+    .important {
+      color: var(--alert);
+      font-weight: 800;
+    }
+
+    ol { padding-left: 1.5em; }
+    li { margin: 6px 0; }
+
+    .facts {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0 18px;
+    }
+
+    .facts th, .facts td {
+      padding: 12px 14px;
+      text-align: left;
+      vertical-align: top;
+      border: 1px solid var(--line);
+    }
+
+    .facts th { width: 34%; background: var(--soft); }
+    .disclaimer { color: var(--muted); font-size: .93em; }
+
+    @media (max-width: 640px) {
+      main { width: 100%; margin: 0; border: 0; border-radius: 0; }
+      .masthead, article { padding: 28px 22px; }
+      .facts th { width: 42%; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header class="masthead">
+      <h1>KagaLinguaRelay (Translation Relay Sysytem)</h1>
+      <p>Azure Translator F0 Reference Information</p>
+    </header>
+
+    <article lang="ja">
+      <h2>Azure Translator F0 参考情報</h2>
+      <p class="notice">本資料は、<a href="https://marketplace.secondlife.com/s/KagaLinguaRelay-Translation-Relay-Sysytem/28533297">KagaLinguaRelay (Translation Relay Sysytem)</a> で <strong>Azure Translator（トライアル終了後）</strong>を利用するための参考情報です。翻訳機の保証対象外です。</p>
+
+      <h2>Azure Translator の最安構成</h2>
+      <p>Azure Translator の標準テキスト翻訳を最も低い料金で利用する設定は、<strong>Azure AI Translator の F0（Free）価格レベル</strong>です。</p>
+      <p><strong>F0 を維持し、S1 などの有料価格レベルへ変更しないことが重要です。</strong></p>
+      <p><strong>F0 の料金ページに記載されている無料枠は月間 200 万文字です。</strong> <a href="https://azure.microsoft.com/en-us/pricing/details/cognitive-services/translator/">Azure Translator の料金</a></p>
+
+      <h2>Azure アカウントの登録</h2>
+      <p>標準の Azure 無料アカウント登録には、電話番号、Microsoft アカウントまたは GitHub アカウント、および<strong>プリペイドではない支払いカード</strong>が必要です。Microsoft は支払いカードとしてクレジットカードまたはデビットカードを案内しています。対応カードは国・地域によって異なります。 <a href="https://azure.microsoft.com/en-us/pricing/purchase-options/pay-as-you-go">Azure 無料アカウント公式 FAQ</a></p>
+      <p>Azure 無料トライアルの終了後も Azure を利用し続けるには、従量課金制への移行が必要です。移行しない場合、アカウントとサービスは無効になります。 <a href="https://azure.microsoft.com/en-us/pricing/purchase-options/pay-as-you-go">Azure 無料アカウント公式 FAQ</a></p>
+
+      <h2>Azure Portal での作成</h2>
+      <ol>
+        <li>Azure Portal で「リソースの作成」を選ぶ。</li>
+        <li><code>Translator</code> を検索し、Azure Translator リソースを選ぶ。</li>
+        <li><span class="important">価格レベルで F0（Free）を選ぶ。</span></li>
+        <li>リソース作成後、「Keys and Endpoint」から接続に必要な情報を取得する。</li>
+      </ol>
+      <p class="important">F0 の翻訳リソースは、Azure サブスクリプションごとに 1 つです。</p>
+      <p><a href="https://learn.microsoft.com/en-sg/azure/ai-services/translator/how-to/create-translator-resource">Translator リソースの作成と構成</a></p>
+
+      <h2>利用上限について</h2>
+      <p>F0 の料金ページに記載されている無料枠は月間 200 万文字です。本資料では、この上限到達後のサービス挙動、自動再開、または課金の有無を保証・断定しません。利用前に Azure Portal と Microsoft の現行公式情報を確認してください。</p>
+
+      <h2>免責事項</h2>
+      <p class="disclaimer">Azure の仕様、利用条件、無料枠、料金、提供リージョンは変更される場合があります。本資料は参考情報であり、料金の発生防止、翻訳結果、継続利用を保証するものではありません。</p>
+    </article>
+
+    <article lang="en">
+      <h2>Azure Translator F0 Reference Information</h2>
+      <p class="notice">This document provides reference information for using Azure Translator <strong>after the free trial period</strong> with <a href="https://marketplace.secondlife.com/s/KagaLinguaRelay-Translation-Relay-Sysytem/28533297">KagaLinguaRelay (Translation Relay Sysytem)</a>. It is outside the translator’s warranty coverage.</p>
+
+      <h2>Lowest-Cost Azure Translator Setup</h2>
+      <p>The lowest-cost configuration for Azure Translator standard text translation is the <strong>Azure AI Translator F0 (Free) pricing tier</strong>.</p>
+      <p><strong>It is important to keep the pricing tier on F0 and not change it to S1 or another paid tier.</strong></p>
+      <p><strong>The F0 pricing page lists a free allowance of 2 million characters per month.</strong> <a href="https://azure.microsoft.com/en-us/pricing/details/cognitive-services/translator/">Azure Translator pricing</a></p>
+
+      <h2>Azure Account Registration</h2>
+      <p>A standard Azure free account requires a phone number, a Microsoft account or GitHub account, and a <strong>non-prepaid payment card</strong>. Microsoft lists credit cards and debit cards as accepted payment methods; available cards vary by country or region. <a href="https://azure.microsoft.com/en-us/pricing/purchase-options/pay-as-you-go">Azure free account FAQ</a></p>
+      <p>To continue using Azure after the Azure free trial ends, the account must be moved to pay-as-you-go. Otherwise, the account and services are disabled. <a href="https://azure.microsoft.com/en-us/pricing/purchase-options/pay-as-you-go">Azure free account FAQ</a></p>
+
+      <h2>Creating the Resource in Azure Portal</h2>
+      <ol>
+        <li>In Azure Portal, select <strong>Create a resource</strong>.</li>
+        <li>Search for <code>Translator</code> and select the Azure Translator resource.</li>
+        <li><span class="important">Select F0 (Free) as the pricing tier.</span></li>
+        <li>After deployment, obtain the required connection details from <strong>Keys and Endpoint</strong>.</li>
+      </ol>
+      <p class="important">Only one F0 Translator resource is available per Azure subscription.</p>
+      <p><a href="https://learn.microsoft.com/en-sg/azure/ai-services/translator/how-to/create-translator-resource">Create and configure a Translator resource</a></p>
+
+      <h2>About the Usage Allowance</h2>
+      <p>The F0 pricing page lists a free allowance of 2 million characters per month. This document does not guarantee or state the service behavior, automatic restart, or billing outcome after that allowance is reached. Check the Azure Portal and current Microsoft documentation before use.</p>
+
+      <h2>Disclaimer</h2>
+      <p class="disclaimer">Azure specifications, terms, free allowances, prices, and regional availability may change. This document is for reference only and does not guarantee avoidance of charges, translation results, or continued availability.</p>
+    </article>
+  </main>
+</body>
+</html>
