@@ -1,35 +1,30 @@
 .manual-figure {
-  width: 100%;
-  max-width: 525px;
+  width: min(525px, calc(100vw - 80px));
+  max-width: 100%;
   margin: 24px auto;
   box-sizing: border-box;
 }
 
-.manual-figure--wide {
-  max-width: 700px;
-}
-
-.manual-figure--compact {
-  max-width: 360px;
-}
-
-.manual-figure a {
+.manual-image-trigger {
   display: block;
   width: 70%;
   margin: 0 auto;
+  padding: 0;
   box-sizing: border-box;
   border: 1px solid rgba(205, 178, 102, .55);
   border-radius: 8px;
+  background: #081a3c;
   overflow: hidden;
   line-height: 0;
+  cursor: zoom-in;
 }
 
-.manual-figure a:focus-visible {
+.manual-image-trigger:focus-visible {
   outline: 3px solid #f3d98b;
   outline-offset: 4px;
 }
 
-.manual-figure img {
+.manual-image-trigger img {
   display: block;
   width: 100%;
   max-width: 100%;

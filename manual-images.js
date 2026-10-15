@@ -1,8 +1,8 @@
 (function () {
   "use strict";
 
-  var links = document.querySelectorAll(".manual-figure a");
-  if (!links.length || typeof HTMLDialogElement === "undefined" ||
+  var triggers = document.querySelectorAll(".manual-image-trigger");
+  if (!triggers.length || typeof HTMLDialogElement === "undefined" ||
       typeof HTMLDialogElement.prototype.showModal !== "function") return;
 
   var dialog = document.createElement("dialog");
@@ -33,25 +33,22 @@
   document.body.appendChild(dialog);
 
   var opener;
-  links.forEach(function (link) {
-    link.setAttribute("aria-haspopup", "dialog");
-    link.addEventListener("click", function (event) {
-      if (event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
-      var thumbnail = link.querySelector("img");
+  triggers.forEach(function (trigger) {
+    trigger.addEventListener("click", function () {
+      var thumbnail = trigger.querySelector("img");
       if (!thumbnail) return;
 
-      event.preventDefault();
-      opener = link;
-      var section = link.closest("section[lang]");
+      opener = trigger;
+      var section = trigger.closest("section[lang]");
       var japanese = section && section.lang === "ja";
       dialog.lang = japanese ? "ja" : "en";
       title.textContent = japanese ? "画像（原寸100％）" : "Image (100% size)";
       closeButton.textContent = japanese ? "閉じる" : "Close";
-      image.src = link.href;
+      image.src = trigger.getAttribute("data-full-image");
       image.alt = thumbnail.alt;
       image.width = Number(thumbnail.getAttribute("width"));
       image.height = Number(thumbnail.getAttribute("height"));
-      var figureCaption = link.closest("figure").querySelector("figcaption");
+      var figureCaption = trigger.closest("figure").querySelector("figcaption");
       caption.textContent = figureCaption ? figureCaption.textContent
         .replace(/画像をクリックすると拡大表示できます。|Click the image to enlarge\./g, "").trim() : "";
       dialog.showModal();
