@@ -1,0 +1,49 @@
+.manual-figure {
+  width: 100%;
+  max-width: 525px;
+  margin: 24px auto;
+  box-sizing: border-box;
+}
+
+.manual-figure--wide {
+  max-width: 700px;
+}
+
+.manual-figure--compact {
+  max-width: 360px;
+}
+
+.manual-figure a {
+  display: block;
+  border: 1px solid rgba(205, 178, 102, .55);
+  border-radius: 8px;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.manual-figure a:focus-visible {
+  outline: 3px solid #f3d98b;
+  outline-offset: 4px;
+}
+
+.manual-figure img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+.manual-figure figcaption {
+  margin-top: 10px;
+  color: #cbd6e8;
+  font-size: .9em;
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 650px) {
+  .container,
+  .klr {
+    overflow-wrap: anywhere;
+  }
+}
