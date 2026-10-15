@@ -16,7 +16,7 @@ body{margin:0;padding:20px;background:radial-gradient(circle at 50% -20%,#2d5ba2
 <li><strong>🌏 35言語対応：</strong><br>中国語の簡体字・繁体字、ポルトガル語の地域差にも対応します。詳しくは<a class="link" href="https://kawaiikagari.github.io/KagaLinguaRelay-Manuals/support-status.html" target="_blank" rel="noopener noreferrer">対応言語一覧</a>をご覧ください。</li>
 <li><strong>🌐 自動翻訳：</strong><br>あなたの発言は相手の言語へ翻訳され、相手の発言はあなたの言語で表示されます。</li>
 <li><strong>📍 利用できる範囲：</strong><br>翻訳機から20m以内でご利用いただけます。v1.03のRez時は、翻訳機と同じ区画（Parcel）内が対象です。</li>
-<li><strong>🔗 URLを含む発言：</strong><br>発言中の<code>http</code>から次の空白、タブ、改行または全角空白までの部分は、翻訳前に文中の<code>(URL removed)</code>へ置き換えられます。文末への追加ではありません。</li>
+<li><strong>🔗 URLを含む発言：</strong><br>発言に含まれるURLは、翻訳によって書き換えられ、リンクとして正しく機能しなくなる場合があります。そのため、<code>http://</code> または <code>https://</code> で始まり、次の空白・タブ・改行・全角空白までの部分を、DeepL／Azureへ送る前に <code>(URL removed)</code> に置き換え、翻訳対象から除外します。</li>
 <li><strong>💬 短いメッセージがおすすめ：</strong><br>短く区切った会話ほど翻訳処理が高速になります。長文は安全な長さで自動分割され、複数回に分けて届く場合があります。</li>
 <li><strong>🪄 HUDでも利用できます：</strong><br>v1.03のHUD装着時は、装着者を中心とした半径20m以内で動作します。区画境界による制限はありません。</li>
 </ul></div>
@@ -35,7 +35,7 @@ body{margin:0;padding:20px;background:radial-gradient(circle at 50% -20%,#2d5ba2
 <li><strong>🌏 Supports 35 Languages:</strong><br>Includes Simplified and Traditional Chinese and Brazilian and European Portuguese. See <a class="link" href="https://kawaiikagari.github.io/KagaLinguaRelay-Manuals/support-status.html" target="_blank" rel="noopener noreferrer">Supported Languages</a> for the full list.</li>
 <li><strong>🌐 Automatic Translation:</strong><br>Your messages are translated into the other person's language, and their messages are shown in your language.</li>
 <li><strong>📍 Available Range:</strong><br>Translation is available within 20 metres of the relay. In v1.03, rezzed use is limited to the same parcel as the relay.</li>
-<li><strong>🔗 Messages Containing URLs:</strong><br>The part of a message from <code>http</code> through the next space, tab, newline, or full-width space is replaced inline with <code>(URL removed)</code> before translation. It is not appended to the end.</li>
+<li><strong>🔗 Messages Containing URLs:</strong><br>Translation may alter a URL and make the link stop working. To avoid this, before sending a message to DeepL or Azure, the relay replaces each URL—from <code>http://</code> or <code>https://</code> to the next space, tab, newline, or full-width space—with <code>(URL removed)</code>, excluding it from translation.</li>
 <li><strong>💬 Keep Messages Short:</strong><br>Short messages are faster and smoother. Long messages may be safely split and delivered in several parts.</li>
 <li><strong>🪄 Also Available as a HUD:</strong><br>When worn as a HUD in v1.03, the relay covers a 20 m radius around the wearer without a parcel-boundary restriction.</li>
 </ul></div>
@@ -44,4 +44,4 @@ body{margin:0;padding:20px;background:radial-gradient(circle at 50% -20%,#2d5ba2
 <div class="box yellow"><h3>🟡 Tips for a Better Experience</h3><ul><li>Use shorter sentences.</li><li>Allow time for translated replies.</li><li>Avoid rapid message bursts.</li><li>Set your viewer language correctly.</li></ul></div>
 <div class="box red"><h3>🔴 Important Notice</h3><p>Rapid consecutive messages can cause delays, splitting, or missed translations because of API throttling. The relay automatically spaces requests to available API keys.</p></div>
 <div class="box red"><h3>Translation Results and Use</h3><p>This system relays public chat to an external translation service and delivers the result to its recipient. Translation content, quality, response time, and service availability depend on the selected translation engine and network conditions.</p><p>Dialects, jokes, irony, and honorific language may have a different nuance in another language. The creator, owner, and installer do not review, mediate, or participate in conversations conducted through translated results. Please use the system at your own discretion.</p></div>
-</section></div><script src="./language-navigation.js"></script></body></html>
+</section></div><script src="./language-navigation.js"></script><script src="./manual-images.js"></script></body></html>
